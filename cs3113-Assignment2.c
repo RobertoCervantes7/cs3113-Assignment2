@@ -23,23 +23,24 @@ void process1(int *total) {
 
 // Function for process 2 to increment the total counter
 void process2(int *total) {
-    for (int i = 0; i < 300000 - 200000; i++) { // Loop to increment the counter 100,000 times
+    for (int i = 0; i < 200000; i++) { // Loop to increment the counter 200,000 times
         (*total)++;
     }
 }
 
 // Function for process 3 to increment the total counter
 void process3(int *total) {
-    for (int i = 0; i < 400000 - 300000; i++) { // Loop to increment the counter 100,000 times
+    for (int i = 0; i < 300000; i++) { // Loop to increment the counter 300,000 times
         (*total)++;
     }
 }
 
 // Function for process 4 to increment the total counter
 void process4(int *total) {
-    for (int i = 0; i < 500000 - 300000; i++) { // Loop to increment the counter 200,000 times
+    for (int i = 0; i < 500000; i++) { // Loop to increment the counter 500,000 times
         (*total)++;
     }
+    printf("Final counter value by Process 4: %d.\n", *total); // Print the total value after incrementing
 }
 
 int main() {
@@ -110,7 +111,6 @@ int main() {
     if (pids[3] == 0) { // Child process 4
         sem_wait(sem3); // Wait for process 3 to finish
         process4(total); // Call process4 function to increment counter
-        printf("From Process 4: counter = %d.\n", *total); // Print counter value
         exit(0); // Exit child process
     }
 
@@ -136,7 +136,7 @@ int main() {
     sem_unlink("sem2"); // Unlink semaphore 2
     sem_unlink("sem3"); // Unlink semaphore 3
 
-    printf("End of Simulation.\n"); // Print end of simulation message
+    printf("End of Program.\n"); // Print end of program message
 
     return 0; // Exit program
 }
