@@ -16,7 +16,7 @@ Directory Structure
 bash
 Copy code
 cs3113-Assignment2/
-├── program.c          # Main implementation file
+├── cs3113-Assignment2.c          # Main implementation file
 ├── README.md          # Project documentation
 └── [Other relevant files] # Any additional files if needed
 Compilation and Execution Steps
